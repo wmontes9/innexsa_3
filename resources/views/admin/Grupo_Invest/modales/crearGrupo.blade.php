@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form enctype="multipart/form-data" action="{{route('guardarGrupo')}}" method="post">
+                <form enctype="multipart/form-data" action="{{route('investigacion.crear_grupo')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="enunciado">Sigla</label>

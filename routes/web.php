@@ -49,11 +49,8 @@ Route::get("admin/getSolucion","SolucionController@getSoluciones");
 
 Route::get('getretos','RetoController@getRetosPublicados');
 Route::get('retos','RetoController@getinfo');
-
-
 Route::get('solucion','SolucionController@getinfo');
 Route::get("getSolucion/{id}","SolucionController@getgeneralusuario");
-
 Route::get("getSolucionReto","SolucionController@getgeneralreto");
 
 

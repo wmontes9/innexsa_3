@@ -15,8 +15,23 @@ class CrearTablaRetos extends Migration
     {
         Schema::create('retos', function (Blueprint $table) {
             $table->bigIncrements('id_reto');
-            $table->text('enunciado');
-            $table->longText('descripcion');
+            $table->text('titulo');
+            $table->longText('pregunta');
+            $table->longText('necesidad');
+            $table->longText('causa');
+            $table->longText('consecuencia');
+            $table->longText('interesados');
+            $table->longText('tiempo_ejecucion');
+            $table->longText('lugar');
+            $table->longText('condicion_e');
+            $table->longText('p_solucion');
+            $table->longText('alcance');
+            $table->longText('condicion_p');
+            $table->longText('accion');
+            $table->longText('conocimiento');
+            $table->longText('elementos');
+            $table->longText('descripcion_s');
+            $table->longText('evaluacion');
             $table->text('url_imagen');
             $table->string('estado');
             $table->timestamps();

@@ -35,7 +35,7 @@ class RetoController extends Controller
         //$competencias = DB::table("Competencia")->select("*")->get()->toArray(); 
         //$data = array($programas,$competencias);
         //return  response()->json($data,200);
-        $retos = Reto::all()->toArray();
+        $retos = reto::all()->toArray();
         $data = $retos;
         return  response()->json($data,200);
     }
@@ -76,11 +76,26 @@ class RetoController extends Controller
      */
     public function store(Request $request)
     {       
-        $reto = new Reto;        
+        $reto = new reto;        
         $file = $request->url_imagen->store('public/imgReto');        
         $nombre = explode('/',$file);
-        $reto->enunciado = $request->enunciado;
-        $reto->descripcion = $request->descripcion;
+        $reto->titulo = $request->titulo;
+        $reto->pregunta = $request->pregunta;
+        $reto->necesidad = $request->necesidad;
+        $reto->causa = $request->causa;
+        $reto->consecuencia = $request->consecuencia;
+        $reto->interesados = $request->interesados;
+        $reto->tiempo_ejecucion = $request->tiempo_ejecucion;
+        $reto->lugar = $request->lugar;
+        $reto->condicion_e = $request->condicion_e;
+        $reto->p_solucion = $request->p_solucion;
+        $reto->alcance = $request->alcance;
+        $reto->condicion_p = $request->condicion_p;
+        $reto->accion = $request->accion;
+        $reto->conocimiento = $request->conocimiento;
+        $reto->elementos = $request->elementos;
+        $reto->descripcion_s = $request->descripcion_s;
+        $reto->evaluacion = $request->evaluacion;
         $reto->url_imagen=$nombre[2];
         $reto->estado="inactivo";
         $reto->save();
@@ -123,7 +138,7 @@ class RetoController extends Controller
     public function update(Request $request, $id)
     {
        // dd(Str::after($file,'/'));
-       $reto = Reto::findOrFail($id);  
+       $reto = reto::findOrFail($id);  
        if($request->hasFile('url_imagen_e')){
             Storage::delete('public/imgReto/'.$reto->url_imagen);
             $file = $request->file('url_imagen_e')->store('public/imgReto');
@@ -134,8 +149,23 @@ class RetoController extends Controller
                 $reto->url_imagen = $nombre[2];
             }
        }   
-        $reto->enunciado = $request->enunciado;
-        $reto->descripcion = $request->descripcion;
+        $reto->titulo = $request->titulo;
+        $reto->pregunta = $request->pregunta;
+        $reto->necesidad = $request->necesidad;
+        $reto->causa = $request->causa;
+        $reto->consecuencia = $request->consecuencia;
+        $reto->interesados = $request->interesados;
+        $reto->tiempo_ejecucion = $request->tiempo_ejecucion;
+        $reto->lugar = $request->lugar;
+        $reto->condicion_e = $request->condicion_e;
+        $reto->p_solucion = $request->p_solucion;
+        $reto->alcance = $request->alcance;
+        $reto->condicion_p = $request->condicion_p;
+        $reto->accion = $request->accion;
+        $reto->conocimiento = $request->conocimiento;
+        $reto->elementos = $request->elementos;
+        $reto->descripcion_s = $request->descripcion_s;
+        $reto->evaluacion = $request->evaluacion;
         $reto->save();
         return redirect('admin/retos');
     }
@@ -147,7 +177,7 @@ class RetoController extends Controller
      */
     public function destroy($reto)
     {
-        $reto = Reto::find($reto);
+        $reto = reto::find($reto);
         $reto->delete();
        // $solucion = Solucion::where("id_reto","=",$reto)->select("*")->get();
        $cant = 0;
@@ -185,7 +215,7 @@ class RetoController extends Controller
      */
     public function getRetosEmpresa($id)
     {
-        return User::with([
+        return user::with([
             'retos', 
             'instituciones' => function($query) use ($id){
                 $query->select('usuario_grupo.estado')->where('usuario_grupo.id_institucion', '=', $id);
@@ -200,7 +230,7 @@ class RetoController extends Controller
      */
     public function publicarReto($id)
     {
-        $reto = Reto::findOrFail($id);
+        $reto = reto::findOrFail($id);
         $reto->estado = "activo";
         $reto->save();
         return;
@@ -211,6 +241,6 @@ class RetoController extends Controller
      */
     public function getRetosPublicados()
     {
-        return Reto::where('estado', '=', 'activo')->get();
+        return reto::where('estado', '=', 'activo')->get();
     }
 }

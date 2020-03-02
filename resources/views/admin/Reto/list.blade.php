@@ -14,17 +14,17 @@
             <table class="table table-responsive" style="margin-top: 10px;">
                 <tr>
                     <th>Id</th>
-                    <th>Enunciado</th>
-                    <!--<th style="width: 350px;">Descripción</th>
+                    <th>Título</th>
+                    <th style="width: 350px;">Pregunta retadora</th>
+                    <!--
                     <th style="width: 200px;">Imagen</th>-->
                     <th colspan="5" class="">Opciones</th>
                 </tr>
                 <tr v-for="reto in retos">
                     <td>@{{reto.id_reto}}</td>
-                    <td><a href="" v-on:click.prevent="soluciones(reto.id)">@{{reto.enunciado}}</a></td>
-                    <!--<td>@{{reto.descripcion}}</td>
+                    <td><a href="" v-on:click.prevent="soluciones(reto.id)">@{{reto.titulo}}</a></td>
+                    <td>@{{reto.pregunta}}</td>
                     <td><img :src="'{{url('/imgreto')}}/'+reto.url_imagen" class="img-responsive" width="100%"></td>
-                    -->
                     {{--@auth--}}
                     <td><a href="" v-on:click.prevent="editReto(reto)"><i class="far fa-edit"></i></a></td>
                     {{--@endauth--}}
