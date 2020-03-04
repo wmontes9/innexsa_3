@@ -62,12 +62,12 @@
                             </div>
                         </div>
                         <hr/>                        
-                        <div class="w-100">
+                        <!--<div class="w-100">
                             <a href="{{ url('login/google') }}" class="btn btn-primary btn-sm border border-primary p-0 pr-2">
                             <img src="{{ asset('webfonts/btn_google_dark_normal_ios.svg') }}">
                                 <strong>Login With Google</strong>
                             </a>
-                        </div>
+                        </div>-->
                     </div> 
                 </div>
             </div>

@@ -25,8 +25,8 @@
                 <tbody>
                     <tr v-for="(reto, i) in retos">
                         <td v-text="++i"></td>
-                        <td v-text="reto.enunciado"></td>
-                        <td v-text="reto.descripcion"></td>
+                        <td v-text="reto.titulo"></td>
+                        <td v-text="reto.pregunta"></td>
                         <td>
                             <a href="" v-on:click.prevent="editarReto(reto)">
                                 <i class="far fa-edit"></i>

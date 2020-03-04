@@ -12,7 +12,7 @@
 						<label for="type">Reto</label>
 						<select name="id_reto" class="form-control">
 							<option value="">--seleccionar--</option>
-							<option v-for="reto in retos" v-bind:value="reto.id_reto">@{{reto.enunciado}}</option>
+							<option v-for="reto in retos" v-bind:value="reto.id_reto">@{{reto.titulo}}</option>
 						</select>
 					</div>
 					<div class="form-group">

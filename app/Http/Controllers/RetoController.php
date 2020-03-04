@@ -169,6 +169,41 @@ class RetoController extends Controller
         $reto->save();
         return redirect('admin/retos');
     }
+
+    public function actualizarReto(Request $request, $id)
+    {
+       // dd(Str::after($file,'/'));
+       $reto = reto::findOrFail($id);  
+       if($request->hasFile('url_imagen_e')){
+            Storage::delete('public/imgReto/'.$reto->url_imagen);
+            $file = $request->file('url_imagen_e')->store('public/imgReto');
+            //$file = $request->url_imagen_e->store('imgReto');
+            $nombre = explode('/',$file);
+            
+            if($file){
+                $reto->url_imagen = $nombre[2];
+            }
+       }   
+        $reto->titulo = $request->titulo;
+        $reto->pregunta = $request->pregunta;
+        $reto->necesidad = $request->necesidad;
+        $reto->causa = $request->causa;
+        $reto->consecuencia = $request->consecuencia;
+        $reto->interesados = $request->interesados;
+        $reto->tiempo_ejecucion = $request->tiempo_ejecucion;
+        $reto->lugar = $request->lugar;
+        $reto->condicion_e = $request->condicion_e;
+        $reto->p_solucion = $request->p_solucion;
+        $reto->alcance = $request->alcance;
+        $reto->condicion_p = $request->condicion_p;
+        $reto->accion = $request->accion;
+        $reto->conocimiento = $request->conocimiento;
+        $reto->elementos = $request->elementos;
+        $reto->descripcion_s = $request->descripcion_s;
+        $reto->evaluacion = $request->evaluacion;
+        $reto->save();
+        return redirect('retos/usuario');
+    }
     /**
      * Remove the specified resource from storage.
      *

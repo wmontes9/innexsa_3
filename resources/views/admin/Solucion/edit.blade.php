@@ -11,14 +11,16 @@
 				<div class="modal-body">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="form-group">
+						<input type="hidden" :value="'{{url('admin/solucion/')}}/'" id="ruta" class="form-control">
+						<!--<div class="form-group">
+							
 							<label for="type">Reto</label>
-							<input type="hidden" :value="'{{url('admin/solucion/')}}/'" id="ruta" class="form-control">
+							
 							<select name="id_reto" v-model="fillSolucion.id_reto" class="form-control">
 								<option value="">--seleccionar--</option>
 								<option v-for="reto in retos" v-bind:value="reto.id_reto">@{{reto.enunciado}}</option>
 							</select>
-						</div>
+						</div>-->
 						<div class="form-group">
 							<label for="">Título</label>
 							

@@ -15,8 +15,8 @@
         </div>        
     </div>
 </div> 
-<div class="item">
+<!--<div class="item">
     <button type="button" class="button btn btn-warning content-button">
         <i class="far fa-lightbulb "></i> Soluciones 
     </button>
-</div>
+</div>-->

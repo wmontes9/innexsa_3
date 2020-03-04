@@ -22,7 +22,7 @@
                 </tr>
                 <tr v-for="reto in retos">
                     <td>@{{reto.id_reto}}</td>
-                    <td><a href="" v-on:click.prevent="soluciones(reto.id)">@{{reto.titulo}}</a></td>
+                    <td><a href="" v-on:click.prevent="soluciones(reto.id_reto)">@{{reto.titulo}}</a></td>
                     <td>@{{reto.pregunta}}</td>
                     <td><img :src="'{{url('/imgreto')}}/'+reto.url_imagen" class="img-responsive" width="100%"></td>
                     {{--@auth--}}

@@ -5,7 +5,10 @@ new Vue({
     },
     el:"#retos",
     data:{
-        fillReto:{"id":"","enunciado":"","descripcion":"","url_imagen":""},
+        fillReto:{"id_reto":"","titulo":"","pregunta":"","necesidad":"","causa":"","consecuencia":"",
+		"interesados":"","tiempo_ejecucion":"","lugar":"","condicion_e":"","p_solucion":"","alcance":"",
+		"condicion_p":"","accion":"","conocimiento":"","elementos":"","descripcion_s":"","evaluacion":"",
+		"url_imagen":"","estado":""},
         retos:null,
     },
     methods:{
@@ -17,9 +20,24 @@ new Vue({
             });                        
         },
         editarReto:function(reto){
-			this.fillReto.id = reto.id_reto;
-			this.fillReto.enunciado = reto.enunciado;
-			this.fillReto.descripcion = reto.descripcion;
+			this.fillReto.id_reto = reto.id_reto;
+			this.fillReto.titulo = reto.titulo;
+            this.fillReto.pregunta = reto.pregunta;
+            this.fillReto.necesidad = reto.necesidad;
+            this.fillReto.causa = reto.causa;
+            this.fillReto.consecuencia = reto.consecuencia;
+            this.fillReto.interesados = reto.interesados;
+            this.fillReto.tiempo_ejecucion = reto.tiempo_ejecucion;
+            this.fillReto.lugar = reto.lugar;
+            this.fillReto.condicion_e = reto.condicion_e;
+            this.fillReto.p_solucion = reto.p_solucion;
+            this.fillReto.alcance = reto.alcance;
+            this.fillReto.condicion_p = reto.condicion_p;
+            this.fillReto.accion = reto.accion;
+            this.fillReto.conocimiento = reto.conocimiento;
+            this.fillReto.elementos = reto.elementos;
+            this.fillReto.descripcion_s = reto.descripcion_s;
+            this.fillReto.evaluacion = reto.evaluacion;
 			this.fillReto.url_imagen = reto.url_imagen;		
 			$("#editReto").modal("show");
         },

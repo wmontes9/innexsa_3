@@ -1,5 +1,5 @@
 <div class="modal fade" id="editReto">
-	<div class="modal-dialog">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h3 class="text-center">Editar reto</h3>					

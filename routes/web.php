@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome'); // pagina princial
 });
+Route::resource("admin/solucion","SolucionController");
+Route::get("admin/getSolucion","SolucionController@getSoluciones");
+
 Route::get('/listaTiposId', 'Auth\RegisterController@getTiposIdentificacion'); // lista tipos de identificación
 Route::get('/listaRoles', 'RolController@getRoles'); //Lista de roles
 
@@ -44,8 +47,7 @@ Route::get('admin/retos/publicar/{id}','RetoController@publicarReto');
 Route::get('admin/getretos','RetoController@getretos');
 //Route::post('admin/retos/update/{id}','RetoController@update');
 
-Route::resource("admin/solucion","SolucionController");
-Route::get("admin/getSolucion","SolucionController@getSoluciones");
+
 
 Route::get('getretos','RetoController@getRetosPublicados');
 Route::get('retos','RetoController@getinfo');
@@ -123,7 +125,7 @@ Route::prefix('retos')->group(function(){
     Route::get('/listaRetos','RetoController@getRetosUsuario')->name('listaRetos');
     Route::post('/nuevo','RetoController@store')->name('guardarRetoUsuario');
     Route::put('/actualizar/{id}','RetoController@actualizarReto')->name('actualizarReto');
-    Route::delete('/eliminar/{id}','RetoController@eliminarReto')->name('eliminarReto');
+    Route::delete('/eliminar/{id}','RetoController@destroy')->name('eliminarReto');
     Route::get('/empresa', 'RetoController@retosEmpresa')->name('retosEmpresa');
 });
 /**

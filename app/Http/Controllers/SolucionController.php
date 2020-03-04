@@ -6,10 +6,10 @@ use Illuminate\Support\Str;
 
 use App\Reto;
 use App\Solucion;
-use Auth;
 use Session;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 class SolucionController extends Controller
 {
     /**
